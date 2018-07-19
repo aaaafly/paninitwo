@@ -101,7 +101,7 @@ def handle_message(event):
     if(check==0):
         msg = TextSendMessage(text='test')
     elif(check==1):
-        msg = = TemplateSendMessage(
+        msg = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
             title='1',
