@@ -101,7 +101,7 @@ def handle_message(event):
     if(check==0):
         msg = TextSendMessage(text='test')
     elif(check==1):
-        msg = ImageSendMessage(original_content_url=temp_yti_URL[1], preview_image_url=temp_yti_URL[1])
+        msg = TextSendMessage(text=temp_yti_URL[1])
 
     #回復訊息msg
     line_bot_api.reply_message(event.reply_token,msg)        
