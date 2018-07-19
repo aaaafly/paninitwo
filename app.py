@@ -101,8 +101,70 @@ def handle_message(event):
     if(check==0):
         msg = TextSendMessage(text='test')
     elif(check==1):
-        msg = TextSendMessage(text=temp_ytv_URL[1])
-    
+        msg = TemplateSendMessage(
+            alt_text='這裡看不到，顆顆',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url=temp_yti_URL[1],
+                        title='1',
+                        text='1',
+                        actions=[
+                            MessageTemplateAction(
+                                label=' ',
+                                text=' '
+                            ),
+                            URITemplateAction(
+                                label='GO',
+                                uri=temp_ytv_URL[1]
+                            ),
+                            MessageTemplateAction(
+                                label=' ',
+                                text=' '
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url=temp_yti_URL[2],
+                        title='2',
+                        text='2',
+                        actions=[
+                            MessageTemplateAction(
+                                label=' ',
+                                text=' '
+                            ),                            
+                            URITemplateAction(
+                                label='GO',
+                                uri=temp_ytv_URL[2]
+                            ),
+                            MessageTemplateAction(
+                                label=' ',
+                                text=' '
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url=temp_yti_URL[3],
+                        title='3',
+                        text='3',
+                        actions=[
+                            MessageTemplateAction(
+                                label=' ',
+                                text=' '
+                            ),                            
+                            URITemplateAction(
+                                label='GO',
+                                uri=temp_ytv_URL[3]
+                            ),
+                            MessageTemplateAction(
+                                label=' ',
+                                text=' '
+                            )
+                        ]
+                    )
+                ]    
+            )
+        )
 
     #回復訊息msg
     line_bot_api.reply_message(event.reply_token,msg)        
