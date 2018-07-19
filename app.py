@@ -101,28 +101,7 @@ def handle_message(event):
     if(check==0):
         msg = TextSendMessage(text='test')
     elif(check==1):
-        msg = TemplateSendMessage(
-        alt_text='Buttons Template',
-        template=ButtonsTemplate(
-            title='1',
-            text='1',
-            thumbnail_image_url=temp_yti_URL[1],
-            actions=[
-                MessageTemplateAction(
-                    label='1',
-                    text='1'
-                ),
-                URITemplateAction(
-                    label='GO',
-                    uri=temp_ytv_URL[1]
-                ),
-                MessageTemplateAction(
-                    label='1',
-                    text='1'
-                )
-            ]
-        )
-    )
+        msg = ImageSendMessage(original_content_url=temp_yti_URL[1], preview_image_url=temp_yti_URL[1])
 
     #回復訊息msg
     line_bot_api.reply_message(event.reply_token,msg)        
