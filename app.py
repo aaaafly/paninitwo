@@ -61,8 +61,8 @@ def youtube_search(input):
             last.append(target)
             i=i+1
     for n in range(1,4):
-        temp_ytv_URL[n] = 'https://youtu.be/' + last[n]
-        temp_yti_URL[n] = 'http://i.ytimg.com/vi/' + last[n] + '/0.jpg'
+        temp_ytv_URL.append('https://youtu.be/' + last[n])
+        temp_yti_URL.append('http://i.ytimg.com/vi/' + last[n] + '/0.jpg')
 #---------------------------------------
 def my_function(input):
     #轉小寫
