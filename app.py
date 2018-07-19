@@ -62,7 +62,7 @@ def youtube_search(input):
             i=i+1
     for n in range(1,4):
         temp_ytv_URL.append('https://youtu.be/' + last[n])
-        temp_yti_URL.append('http://i.ytimg.com/vi/' + last[n] + '/0.jpg')
+        temp_yti_URL.append('https://i.ytimg.com/vi/' + last[n] + '/0.jpg')
 #---------------------------------------
 def my_function(input):
     #轉小寫
@@ -106,19 +106,11 @@ def handle_message(event):
         template=ButtonsTemplate(
             title='1',
             text='1',
-            thumbnail_image_url=Ni_ask_URL,
+            thumbnail_image_url=temp_yti_URL[1],
             actions=[
-                MessageTemplateAction(
-                    label='1',
-                    text='1'
-                ),
                 URITemplateAction(
                     label='GO',
                     uri=temp_ytv_URL[1]
-                ),
-                MessageTemplateAction(
-                    label='1',
-                    text='1'
                 )
             ]
         )
