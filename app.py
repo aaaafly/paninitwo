@@ -1,3 +1,7 @@
+
+
+#----------------import----------------------#
+import os
 #----------------line bot api----------------#
 from flask import Flask, abort, request
 from linebot import LineBotApi, WebhookHandler
