@@ -42,7 +42,7 @@ def handle_message(event):
     get = event.message.text
 #------------------------------------------------------------------------------------------------------#
     if(get == 'plot'):
-        photo_URL = feePlot()
+        photo_URL = picture()
         msg = ImageSendMessage(original_content_url=photo_URL,preview_image_url=photo_URL)
         #回復訊息msg
         line_bot_api.reply_message(event.reply_token,msg) 
