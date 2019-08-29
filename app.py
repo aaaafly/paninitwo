@@ -13,9 +13,26 @@ app = Flask(__name__)
 
 ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
 SECRET = os.environ.get('SECRET')
+group_id = os.environ.get('group_id')
 
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 handler = WebhookHandler(SECRET)
+
+@handler.add(JoinEvent)
+def handle_join(event):
+    newcoming_text = "太酷了吧!!!!"
+
+    line_bot_api.reply_message(
+            event.reply_token,
+            TextMessage(text=newcoming_text)
+        )
+    print("JoinEvent =", JoinEvent)
+
+@handler.add(LeaveEvent)
+def handle_leave(event):
+    print("leave Event =", event)
+    print("Bye", event.source)
+
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -44,8 +61,6 @@ def handle_message(event):
 #------------------------------------------------------------------------------------------------------#
     if(get == 'get'):
         msg = TextSendMessage('get')
-
-        group_id = event.source.group_id
 
         member_ids_res = line_bot_api.get_group_member_ids(group_id)
         print(member_ids_res.member_ids)
