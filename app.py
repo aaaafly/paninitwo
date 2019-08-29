@@ -2,7 +2,7 @@
 #----------------import----------------------#
 import os
 from myID import *
-
+from myFun import *
 #----------------line bot api----------------#
 from flask import Flask, abort, request
 from linebot import LineBotApi, WebhookHandler
@@ -41,7 +41,12 @@ def handle_message(event):
     #get取的訊息
     get = event.message.text
 #------------------------------------------------------------------------------------------------------#
-    if(get == 'test'):
+    if(get == 'plot'):
+        photo_URL = feePlot()
+        msg = ImageSendMessage(original_content_url=photo_URL,preview_image_url=photo_URL)
+        #回復訊息msg
+        line_bot_api.reply_message(event.reply_token,msg) 
+    elif(get == 'test'):
         print(event.source)
         msg = TextSendMessage('ok')
         #回復訊息msg
