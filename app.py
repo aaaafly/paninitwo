@@ -45,7 +45,12 @@ def handle_message(event):
         photo_URL = picture()
         msg = ImageSendMessage(original_content_url=photo_URL,preview_image_url=photo_URL)
         #回復訊息msg
-        line_bot_api.reply_message(event.reply_token,msg) 
+        line_bot_api.reply_message(event.reply_token,msg)
+    elif(get == 'update'):
+        photo_URL = feePlot()
+        msg = ImageSendMessage(original_content_url=photo_URL,preview_image_url=photo_URL)
+        #回復訊息msg
+        line_bot_api.reply_message(event.reply_token,msg)
     elif(get == 'test'):
         print(event.source)
         msg = TextSendMessage('ok')
