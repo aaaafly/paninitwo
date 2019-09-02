@@ -28,8 +28,6 @@ def upload_photo(path):
     return image['link']
 
 def feePlot():
-    apikey = 'AIzaSyAzpWOZ2DM5t84gHbBdUttvKNuuhflOJ6E'
-    getvalueurl = 'https://sheets.googleapis.com/v4/spreadsheets/143RmfNG-gamYarH1e9NMfD9mmiR3h5UR0ypn4S3xtUQ/values/A2:D?key=%s' % (apikey)
     res = requests.get(getvalueurl)
     data = res.content
     jsondata = json.loads(data)
@@ -61,12 +59,13 @@ def feePlot():
             x3.append(int(time))
 
     plt.plot(x1, y1, '-o', label='Water')
+    [plt.annotate(j,(i,j),textcoords="offset points",xytext=(0,8),ha='center') for i,j in zip(x1,y1)]
     plt.plot(x2, y2, '-o', label='Gas')
+    [plt.annotate(j,(i,j),textcoords="offset points",xytext=(0,8),ha='center') for i,j in zip(x2,y2)]
     plt.plot(x3, y3, '-o', label='Electicity')
+    [plt.annotate(j,(i,j),textcoords="offset points",xytext=(0,8),ha='center') for i,j in zip(x3,y3)]
 
-    axes = plt.subplot(111)
-    axes.set_xticks(x)
-    axes.set_xticklabels(x_label)
+    plt.xticks(x,x_label)
     plt.legend()
 
     plt.savefig('send.png')

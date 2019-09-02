@@ -21,3 +21,6 @@ refresh_token = os.environ.get('imgur_refresh_token')
 
 #album id
 album_id_0 = os.environ.get('album_id_0')
+
+#url
+getvalueurl = os.environ.get('getvalueurl')
